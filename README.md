@@ -1,6 +1,6 @@
 # DiceSet
 
-TODO: Write a gem description
+A gem with dices, to get rolling with Ruby.
 
 ## Installation
 
