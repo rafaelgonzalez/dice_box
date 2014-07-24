@@ -7,10 +7,10 @@ Gem::Specification.new do |spec|
   spec.name          = 'dice_set'
   spec.version       = DiceSet::VERSION
   spec.authors       = ['Rafaël Gonzalez']
-  spec.email         = ['rafaelgonzalez@users.noreply.github.com']
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
-  spec.homepage      = ''
+  spec.email         = ['github@rafaelgonzalez.me']
+  spec.summary       = %q{A gem with dices, to get rolling with Ruby.}
+  spec.description   = %q{A gem with dices, to get rolling with Ruby.}
+  spec.homepage      = 'https://github.com/rafaelgonzalez/dice_set'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0")
