@@ -1,4 +1,4 @@
-require "dice_set/version"
+require 'dice_set/version'
 
 module DiceSet
   # Your code goes here...
