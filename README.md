@@ -47,6 +47,10 @@ dice.current_side # => #<DiceBox::Dice::Side>
 dice.current_side.value # => 24
 ```
 
+## Documentation
+
+Check the [online documentation](http://rubydoc.info/github/rafaelgonzalez/dice_box/master/frames).
+
 ## Contributing
 
 1. Fork it ( http://github.com/rafaelgonzalez/dice_box/fork )
