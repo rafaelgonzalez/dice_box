@@ -1,6 +1,6 @@
 module DiceBox
 
-  # The Dice class is the representation of a dice.
+  # Representation of a dice.
   class Dice
 
     # @!attribute [r] sides

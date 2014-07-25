@@ -1,7 +1,7 @@
 module DiceBox
   class Dice
 
-    # The Side class is the representation of the side of a dice.
+    # Representation of the side of a dice.
     class Side
 
       # @!attribute [r] value
