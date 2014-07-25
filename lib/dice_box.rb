@@ -1,6 +1,6 @@
 require 'dice_box/version'
 
-# Global namespace of the library.
+# Global namespace of the library
 module DiceBox
 end
 

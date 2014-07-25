@@ -1,6 +1,6 @@
 module DiceBox
 
-  # Representation of a dice.
+  # Representation of a dice
   class Dice
 
     # @!attribute [r] sides
@@ -17,7 +17,7 @@ module DiceBox
       @current_side = nil
     end
 
-    # Rolls multiple dices with the same number of sides.
+    # Rolls multiple dices with the same number of sides
     # @param sides_number [Integer] the number of sides of the dices
     # @param amount [Integer] the number of dices rolled
     # @return [Integer] the total roll result
@@ -29,7 +29,7 @@ module DiceBox
       end.inject(&:+)
     end
 
-    # Rolls the dice.
+    # Rolls the dice
     # @note Sets #current_side to the rolled Side
     # @return [Integer] the value of the rolled Side
     def roll
@@ -59,7 +59,7 @@ module DiceBox
 
     private
 
-    # Instanciates multiple Sides.
+    # Instanciates multiple Sides
     # @param sides_number [Integer] the number of Sides to instanciate
     # @return [Array] the Array of instanciated Sides
     def build_sides(sides_number)
