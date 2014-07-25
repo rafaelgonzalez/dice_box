@@ -33,8 +33,28 @@ module DiceBox
     # @note Sets #current_side to the rolled Side
     # @return [Integer] the value of the rolled Side
     def roll
-      @current_side = sides.sample
+      @current_side = balanced? ? sides.sample : weighted_roll
       current_side.value
+    end
+
+    # Determines if all Sides of the Dice have the same weight
+    # @return [Boolean]
+    def balanced?
+      !crooked?
+    end
+
+    # Determines if at least one Side has a different weight than any other Side of the Dice
+    # @return [Boolean]
+    def crooked?
+      sides.map(&:weight).any? do |weight|
+        weight != sides.first.weight
+      end
+    end
+
+    # The weight of the Dice, sum of all Sides weights
+    # @return [Float] the weight of the Dice
+    def weight
+      sides.map(&:weight).inject(&:+)
     end
 
     private
@@ -45,6 +65,17 @@ module DiceBox
     def build_sides(sides_number)
       sides_number.times.map do |number|
         Side.new(number + 1)
+      end
+    end
+
+    # Rolls the Dice taking Sides weights into account
+    # @return [Side] the rolled Side
+    def weighted_roll
+      num = rand(0..weight)
+
+      sides.each do |side|
+        return side if side.weight > num
+        num = num - side.weight
       end
     end
   end
