@@ -1,4 +1,4 @@
-module DiceSet
+module DiceBox
   # Current version number of the library
   VERSION = '0.0.1'
 end
