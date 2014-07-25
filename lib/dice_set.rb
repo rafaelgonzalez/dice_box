@@ -5,3 +5,4 @@ module DiceSet
 end
 
 require 'dice_set/dice'
+require 'dice_set/dice/side'
