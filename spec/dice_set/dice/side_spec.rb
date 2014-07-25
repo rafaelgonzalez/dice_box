@@ -1,4 +1,4 @@
-describe DiceSet::Dice::Side do
+describe DiceBox::Dice::Side do
   subject { described_class.new(12) }
 
   describe '#value' do

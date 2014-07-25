@@ -1,8 +1,8 @@
-require 'dice_set/version'
+require 'dice_box/version'
 
-# DiceSet is the global namespace of the library.
-module DiceSet
+# DiceBox is the global namespace of the library.
+module DiceBox
 end
 
-require 'dice_set/dice'
-require 'dice_set/dice/side'
+require 'dice_box/dice'
+require 'dice_box/dice/side'

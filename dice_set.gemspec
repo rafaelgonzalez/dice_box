@@ -1,16 +1,16 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'dice_set/version'
+require 'dice_box/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'dice_set'
-  spec.version       = DiceSet::VERSION
+  spec.name          = 'dice_box'
+  spec.version       = DiceBox::VERSION
   spec.authors       = ['Rafaël Gonzalez']
   spec.email         = ['github@rafaelgonzalez.me']
   spec.summary       = %q{A gem with dices, to get rolling with Ruby.}
   spec.description   = %q{A gem with dices, to get rolling with Ruby.}
-  spec.homepage      = 'https://github.com/rafaelgonzalez/dice_set'
+  spec.homepage      = 'https://github.com/rafaelgonzalez/dice_box'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0")

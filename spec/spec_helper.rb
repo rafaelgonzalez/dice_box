@@ -1,4 +1,4 @@
-require 'dice_set'
+require 'dice_box'
 
 RSpec.configure do |config|
 end

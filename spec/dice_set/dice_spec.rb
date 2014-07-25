@@ -1,4 +1,4 @@
-describe DiceSet::Dice do
+describe DiceBox::Dice do
   subject { described_class.new(4) }
 
   describe '#sides' do
@@ -6,7 +6,7 @@ describe DiceSet::Dice do
       expect(subject.sides).to be_a(Array)
 
       subject.sides.each do |side|
-        expect(side).to be_a(DiceSet::Dice::Side)
+        expect(side).to be_a(DiceBox::Dice::Side)
       end
     end
 

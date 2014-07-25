@@ -1,4 +1,4 @@
-module DiceSet
+module DiceBox
   class Dice
 
     # The Side class is the representation of the side of a dice.

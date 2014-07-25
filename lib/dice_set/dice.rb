@@ -1,4 +1,4 @@
-module DiceSet
+module DiceBox
 
   # The Dice class is the representation of a dice.
   class Dice
