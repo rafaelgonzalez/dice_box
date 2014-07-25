@@ -1,5 +1,7 @@
 # DiceBox
 
+![Dice Box](dices.jpg)
+
 A gem with dices, to get rolling with Ruby.
 
 ## Installation
