@@ -1,6 +1,6 @@
 # DiceBox
 
-![Dice Box](https://github.com/rafaelgonzalez/dice_box/blob/master/dices.jpg)
+![Dice Box](https://raw.githubusercontent.com/rafaelgonzalez/dice_box/master/dices.jpg)
 
 [![Build Status](https://travis-ci.org/rafaelgonzalez/dice_box.svg?branch=master)](https://travis-ci.org/rafaelgonzalez/dice_box)
 [![Code Climate](https://codeclimate.com/github/rafaelgonzalez/dice_box.png)](https://codeclimate.com/github/rafaelgonzalez/dice_box)
