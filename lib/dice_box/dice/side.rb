@@ -13,6 +13,7 @@ module DiceBox
       attr_accessor :weight
 
       # @param value [Integer] the actual value of the Side
+      # @param weight [Float] the weight of the Side
       def initialize(value, weight = 1.0)
         @value = value
         @weight = weight

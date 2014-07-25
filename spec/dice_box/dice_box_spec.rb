@@ -84,4 +84,51 @@ describe DiceBox::Dice do
       expect(subject.current_side.value).to eql rolled_value
     end
   end
+
+  describe '#balancee?' do
+    context 'with Sides of the same weight' do
+      it 'returns true' do
+        expect(subject).to be_balanced
+      end
+    end
+
+    context 'with Sides with different weight' do
+      before { subject.sides.first.weight = 2.0 }
+
+      it 'returns false' do
+        expect(subject).not_to be_balanced
+      end
+    end
+  end
+
+  describe '#crooked?' do
+    context 'with Sides of the same weight' do
+      it 'returns false' do
+        expect(subject).not_to be_crooked
+      end
+    end
+
+    context 'with Sides with different weight' do
+      before { subject.sides.first.weight = 2.0 }
+
+      it 'returns true' do
+        expect(subject).to be_crooked
+      end
+    end
+  end
+
+  describe '#weight' do
+    subject { described_class.new(4) }
+
+    before do
+      subject.sides[0].weight = 2.32
+      subject.sides[1].weight = 3.0
+      subject.sides[2].weight = 1.26
+      subject.sides[3].weight = 0.72
+    end
+
+    it 'returns the total of Sides weights' do
+      expect(subject.weight).to eql 7.3
+    end
+  end
 end
