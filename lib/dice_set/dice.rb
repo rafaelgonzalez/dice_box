@@ -5,12 +5,16 @@ module DiceSet
 
     # @!attribute [r] sides
     # @return [Array] the Array of Sides of the Dice
-
     attr_reader :sides
+
+    # @!attribute [r] current_side
+    # @return [Array] the last rolled Side
+    attr_reader :current_side
 
     # @param sides_number [Fixnum] the number of Sides this Dice should have
     def initialize(sides_number)
       @sides = build_sides(sides_number)
+      @current_side = nil
     end
 
     # Rolls multiple dices with the same number of sides.
@@ -26,9 +30,11 @@ module DiceSet
     end
 
     # Rolls the dice.
-    # @return [Fixnum] the roll result
+    # @note Sets #current_side to the rolled Side
+    # @return [Fixnum] the value of the rolled Side
     def roll
-      self.class.roll(sides.length, 1)
+      @current_side = sides.sample
+      current_side.value
     end
 
     private

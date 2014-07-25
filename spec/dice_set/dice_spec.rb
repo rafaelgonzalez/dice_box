@@ -15,6 +15,22 @@ describe DiceSet::Dice do
     end
   end
 
+  describe '#current_side' do
+    context 'with a non-rolled Dice' do
+      it 'returns nil' do
+        expect(subject.current_side).to be_nil
+      end
+    end
+
+    context 'with a rolled Dice' do
+      it 'returns the last rolled side' do
+        rolled_value = subject.roll
+
+        expect(subject.current_side.value).to eql rolled_value
+      end
+    end
+  end
+
   describe '.roll' do
     context 'with 1 dice of 6 sides' do
       it 'is always superior to 0' do
@@ -50,9 +66,22 @@ describe DiceSet::Dice do
   end
 
   describe '#roll' do
-    it 'calls the class method' do
-      expect(described_class).to receive(:roll).once.with(4, 1)
-      subject.roll
+    context 'with a dice of 6 sides' do
+      subject { described_class.new(6) }
+
+      it 'is always superior to 0' do
+        expect(subject.roll).to be > 0
+      end
+
+      it 'is always inferior to 7' do
+        expect(subject.roll).to be < 7
+      end
+    end
+
+    it 'sets #current_side to ' do
+      rolled_value = subject.roll
+
+      expect(subject.current_side.value).to eql rolled_value
     end
   end
 end
