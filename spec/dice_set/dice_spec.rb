@@ -1,8 +1,18 @@
 describe DiceSet::Dice do
   subject { described_class.new(4) }
 
-  describe '.new' do
-    specify { expect(subject.sides).to eql 4 }
+  describe '#sides' do
+    it 'returns an Array of Sides' do
+      expect(subject.sides).to be_a(Array)
+
+      subject.sides.each do |side|
+        expect(side).to be_a(DiceSet::Dice::Side)
+      end
+    end
+
+    it 'has the correct number of sides' do
+      expect(subject.sides.length).to eql 4
+    end
   end
 
   describe '.roll' do
