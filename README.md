@@ -2,6 +2,7 @@
 
 ![Dice Box](dices.jpg)
 
+[![Build Status](https://travis-ci.org/rafaelgonzalez/dice_box.svg?branch=master)](https://travis-ci.org/rafaelgonzalez/dice_box)
 A gem with dices, to get rolling with Ruby.
 
 ## Installation
