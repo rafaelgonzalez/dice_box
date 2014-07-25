@@ -5,11 +5,11 @@ module DiceSet
     class Side
 
       # @!attribute [r] value
-      # @return [Fixnum] the actual value of the Side
+      # @return [Integer] the actual value of the Side
 
       attr_reader :value
 
-      # @param value [Fixnum] the actual value of the Side
+      # @param value [Integer] the actual value of the Side
       def initialize(value)
         @value = value
       end
