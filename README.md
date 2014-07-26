@@ -47,6 +47,22 @@ dice.current_side # => #<DiceBox::Dice::Side>
 dice.current_side.value # => 24
 ```
 
+### Cheating with Sides weights
+
+You can alter the chances of appearence of any side by changing its weight:
+
+```ruby
+dice = DiceBox::Dice.new(3)
+dice.sides[0].weight = 0.0
+dice.sides[1].weight = 2.0
+
+dice.roll # => 2
+dice.roll # => 3
+dice.roll # => 2
+dice.roll # => 2
+dice.roll # => 2
+```
+
 ## Documentation
 
 Check the [online documentation](http://rubydoc.info/github/rafaelgonzalez/dice_box/master/frames).
