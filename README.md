@@ -6,7 +6,7 @@
 [![Code Climate](https://codeclimate.com/github/rafaelgonzalez/dice_box.png)](https://codeclimate.com/github/rafaelgonzalez/dice_box)
 [![Test Coverage](https://codeclimate.com/github/rafaelgonzalez/dice_box/coverage.png)](https://codeclimate.com/github/rafaelgonzalez/dice_box)
 
-A gem with dices, to get rolling with Ruby.
+A gem of dices, to get rolling with Ruby.
 
 ## Installation
 
