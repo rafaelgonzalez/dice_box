@@ -1,0 +1,5 @@
+--color
+--abc-max 15
+--no-style
+--no-doc
+--gte coverage/.last_run.json,99
