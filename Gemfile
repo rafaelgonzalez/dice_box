@@ -8,5 +8,6 @@ end
 
 group :test do
   gem 'rspec', '~> 3.0'
+  gem 'simplecov', '~> 0.9.0'
   gem 'codeclimate-test-reporter'
 end
