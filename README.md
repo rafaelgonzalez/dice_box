@@ -16,73 +16,60 @@ A gem of dices, to get rolling with Ruby.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-    gem 'dice_box'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
+Via RubyGems:
 
     $ gem install dice_box
 
+Or in a Gemfile:
+
+    gem 'dice_box'
+
 ## Usage
 
-### Rolling dices
+Complete documentation available [here](http://rubydoc.info/github/rafaelgonzalez/dice_box/frames).
 
-**Without instantiating**
+- [DiceBox::Dice](http://rubydoc.info/github/rafaelgonzalez/dice_box/DiceBox/Dice) (rolling dices)
+  ```ruby
+  # Roll a dice with 7 sides
+  DiceBox::Dice.roll(7) # => 4
 
-```ruby
-# Roll a dice with 7 sides
-DiceBox::Dice.roll(7) # => 4
+  # Roll 3 dices with 12 sides
+  DiceBox::Dice.roll(12, 3) # => 27
 
-# Roll 3 dices with 12 sides
-DiceBox::Dice.roll(12, 3) # => 27
-```
+  # Using an instance
+  dice = DiceBox::Dice.new(12)
+  dice.rolled # => nil
+  dice.roll # => 24
+  dice.rolled # => 24
+  ```
 
-**Instantiate a dice with the number of sides you want**
+- [DiceBox::Dice::Sides](http://rubydoc.info/github/rafaelgonzalez/dice_box/DiceBox/Dice/Side) (cheating with sides weights)
+  ```ruby
+  dice = DiceBox::Dice.new(3)
+  dice.sides[0].weight = 0.0
+  dice.sides[1].weight = 2.0
 
-```ruby
-dice = DiceBox::Dice.new(12)
-dice.rolled_side # => nil
-dice.roll # => 24
+  dice.roll # => 2
+  dice.roll # => 3
+  dice.roll # => 2
+  dice.roll # => 2
+  dice.roll # => 2
+  ```
 
-dice.rolled_side # => #<DiceBox::Dice::Side>
-dice.rolled_side.value # => 24
-```
+## Versioning
 
-### Cheating with Sides weights
+DiceBox follows the principles of [semantic versioning](http://semver.org).
 
-You can alter the chances of appearence of any side by changing its weight:
+> Given a version number MAJOR.MINOR.PATCH, increment the:
 
-```ruby
-dice = DiceBox::Dice.new(3)
-dice.sides[0].weight = 0.0
-dice.sides[1].weight = 2.0
+> - MAJOR version when you make incompatible API changes,
+> - MINOR version when you add functionality in a backwards-compatible manner, and
+> - PATCH version when you make backwards-compatible bug fixes.
 
-dice.roll # => 2
-dice.roll # => 3
-dice.roll # => 2
-dice.roll # => 2
-dice.roll # => 2
-```
-
-## Documentation
-
-[The documentation](http://rubydoc.info/github/rafaelgonzalez/dice_box/master/frames) is generated with [YARD](http://yardoc.org/).
-
-## Contributing
-
-1. Fork it ( http://github.com/rafaelgonzalez/dice_box/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+> Additional labels for pre-release and build metadata are available as extensions to the MAJOR.MINOR.PATCH format.
 
 ## License
 
 Copyright :copyright: 2014 Rafaël Gonzalez
 
-Released under the terms of the MIT licence. See the LICENSE file for more details.
+Released under the terms of the MIT licence. See the [LICENSE](https://raw.githubusercontent.com/rafaelgonzalez/dice_box/master/LICENSE.txt) file for more details.
