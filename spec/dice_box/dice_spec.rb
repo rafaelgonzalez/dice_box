@@ -78,14 +78,14 @@ describe DiceBox::Dice do
       end
     end
 
-    it 'sets #current_side to ' do
+    it 'sets #current_side to the rolled value' do
       rolled_value = subject.roll
 
       expect(subject.current_side.value).to eql rolled_value
     end
   end
 
-  describe '#balancee?' do
+  describe '#balanced?' do
     context 'with Sides of the same weight' do
       it 'returns true' do
         expect(subject).to be_balanced
