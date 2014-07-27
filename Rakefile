@@ -3,20 +3,20 @@ require 'rspec/core/rake_task'
 
 RSpec::Core::RakeTask.new('spec')
 
-task :default => :test
+task default: :test
 
 desc 'Run the test suite'
-task :test => :spec
+task test: :spec
 
 begin
   require 'cane/rake_task'
 
-  desc "Run Cane to check quality metrics"
+  desc 'Run Cane to check quality metrics'
   Cane::RakeTask.new(:quality) do |cane|
     cane.canefile = '.cane'
   end
 rescue LoadError
-  warn "Cane not available, :quality task not provided."
+  warn 'Cane not available, :quality task not provided.'
 end
 
 begin
@@ -27,7 +27,7 @@ begin
     task.fail_on_error = false
   end
 rescue LoadError
-  warn "RuboCop not available, :rubocop task not provided."
+  warn 'RuboCop not available, :rubocop task not provided.'
 end
 
 Rake::Task[:test].enhance do

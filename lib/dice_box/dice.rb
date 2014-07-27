@@ -1,8 +1,6 @@
 module DiceBox
-
   # Representation of a dice
   class Dice
-
     # @!attribute [r] sides
     # @return [Array] the Array of Sides of the Dice
     attr_reader :sides
@@ -24,9 +22,9 @@ module DiceBox
     def self.roll(sides_number, amount = 1)
       return 0 if amount.nil? || amount <= 0
 
-      amount.times.collect do
+      amount.times.map do
         Random.new.rand(1..sides_number)
-      end.inject(&:+)
+      end.reduce(&:+)
     end
 
     # Rolls the dice
@@ -60,7 +58,7 @@ module DiceBox
     # The weight of the Dice, sum of all Sides weights
     # @return [Float] the weight of the Dice
     def weight
-      sides.map(&:weight).inject(&:+)
+      sides.map(&:weight).reduce(&:+)
     end
 
     private
