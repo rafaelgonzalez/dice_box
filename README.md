@@ -8,6 +8,12 @@
 
 A gem of dices, to get rolling with Ruby.
 
+**Supported Ruby versions:**
+
+- 2.1.0
+- 2.0.0
+- 1.9.3
+
 ## Installation
 
 Add this line to your application's Gemfile:
