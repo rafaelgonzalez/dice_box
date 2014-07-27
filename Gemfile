@@ -11,4 +11,5 @@ group :test do
   gem 'simplecov', '~> 0.9.0'
   gem 'codeclimate-test-reporter'
   gem 'cane'
+  gem 'rubocop', require: false
 end
