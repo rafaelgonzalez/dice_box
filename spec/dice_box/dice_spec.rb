@@ -44,7 +44,7 @@ describe DiceBox::Dice do
 
     context 'with 5 dices of 3 sides' do
       it 'is always superior to 5' do
-        expect(described_class.roll(3, 5)).to be > 5
+        expect(described_class.roll(3, 5)).to be > 4
       end
 
       it 'is always inferior to 16' do
