@@ -7,14 +7,14 @@ module DiceBox
     # @return [Array] the Array of Sides of the Dice
     attr_reader :sides
 
-    # @!attribute [r] current_side
+    # @!attribute [r] rolled_side
     # @return [Array] the last rolled Side
-    attr_reader :current_side
+    attr_reader :rolled_side
 
     # @param sides_number [Integer] the number of Sides this Dice should have
     def initialize(sides_number)
       @sides = build_sides(sides_number)
-      @current_side = nil
+      @rolled_side = nil
     end
 
     # Rolls multiple dices with the same number of sides
@@ -30,11 +30,17 @@ module DiceBox
     end
 
     # Rolls the dice
-    # @note Sets #current_side to the rolled Side
+    # @note Sets #rolled_side to the rolled Side
     # @return [Integer] the value of the rolled Side
     def roll
-      @current_side = balanced? ? sides.sample : weighted_roll
-      current_side.value
+      @rolled_side = balanced? ? sides.sample : weighted_roll
+      rolled_side.value
+    end
+
+    # Returns the last value rolled
+    # @return [Integer] the last rolled value.
+    def rolled
+      @rolled_side ? @rolled_side.value : nil
     end
 
     # Determines if all Sides of the Dice have the same weight

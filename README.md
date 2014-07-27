@@ -46,11 +46,11 @@ DiceBox::Dice.roll(12, 3) # => 27
 
 ```ruby
 dice = DiceBox::Dice.new(12)
-dice.current_side # => nil
+dice.rolled_side # => nil
 dice.roll # => 24
 
-dice.current_side # => #<DiceBox::Dice::Side>
-dice.current_side.value # => 24
+dice.rolled_side # => #<DiceBox::Dice::Side>
+dice.rolled_side.value # => 24
 ```
 
 ### Cheating with Sides weights
