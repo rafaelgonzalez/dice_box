@@ -15,10 +15,10 @@ describe DiceBox::Dice do
     end
   end
 
-  describe '#current_side' do
+  describe '#rolled_side' do
     context 'with a non-rolled Dice' do
       it 'returns nil' do
-        expect(subject.current_side).to be_nil
+        expect(subject.rolled_side).to be_nil
       end
     end
 
@@ -26,7 +26,7 @@ describe DiceBox::Dice do
       it 'returns the last rolled side' do
         rolled_value = subject.roll
 
-        expect(subject.current_side.value).to eql rolled_value
+        expect(subject.rolled_side.value).to eql rolled_value
       end
     end
   end
@@ -66,10 +66,10 @@ describe DiceBox::Dice do
   end
 
   describe '#roll' do
-    it 'sets #current_side to the rolled value' do
+    it 'sets #rolled_side to the rolled value' do
       rolled_value = subject.roll
 
-      expect(subject.current_side.value).to eql rolled_value
+      expect(subject.rolled_side.value).to eql rolled_value
     end
 
     context 'with a dice of 6 sides' do
