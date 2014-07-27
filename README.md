@@ -65,7 +65,7 @@ dice.roll # => 2
 
 ## Documentation
 
-Check the [online documentation](http://rubydoc.info/github/rafaelgonzalez/dice_box/master/frames).
+[The documentation](http://rubydoc.info/github/rafaelgonzalez/dice_box/master/frames) is generated with [YARD](http://yardoc.org/).
 
 ## Contributing
 
