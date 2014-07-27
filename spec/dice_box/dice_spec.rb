@@ -66,6 +66,12 @@ describe DiceBox::Dice do
   end
 
   describe '#roll' do
+    it 'sets #current_side to the rolled value' do
+      rolled_value = subject.roll
+
+      expect(subject.current_side.value).to eql rolled_value
+    end
+
     context 'with a dice of 6 sides' do
       subject { described_class.new(6) }
 
@@ -78,10 +84,17 @@ describe DiceBox::Dice do
       end
     end
 
-    it 'sets #current_side to the rolled value' do
-      rolled_value = subject.roll
+    context 'with a crooked dice' do
+      subject { described_class.new(3) }
 
-      expect(subject.current_side.value).to eql rolled_value
+      before do
+        subject.sides[0].weight = 0
+        subject.sides[1].weight = 0
+      end
+
+      it 'rolls the side with weight' do
+        expect(subject.roll).to eql 3
+      end
     end
   end
 
