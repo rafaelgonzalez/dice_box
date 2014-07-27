@@ -98,6 +98,22 @@ describe DiceBox::Dice do
     end
   end
 
+  describe '#rolled' do
+    context 'with a non-rolled Dice' do
+      it 'returns nil' do
+        expect(subject.rolled).to be_nil
+      end
+    end
+
+    context 'with a rolled Dice' do
+      it 'returns the last rolled side' do
+        rolled_value = subject.roll
+
+        expect(subject.rolled).to eql rolled_value
+      end
+    end
+  end
+
   describe '#balanced?' do
     context 'with Sides of the same weight' do
       it 'returns true' do

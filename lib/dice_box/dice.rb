@@ -37,6 +37,12 @@ module DiceBox
       current_side.value
     end
 
+    # Returns the last value rolled
+    # @return [Integer] the last rolled value.
+    def rolled
+      @current_side ? @current_side.value : nil
+    end
+
     # Determines if all Sides of the Dice have the same weight
     # @return [Boolean]
     def balanced?
