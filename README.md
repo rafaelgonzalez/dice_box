@@ -1,12 +1,12 @@
 # DiceBox
 
-![Dice Box](https://raw.githubusercontent.com/rafaelgonzalez/dice_box/master/dices.jpg)
+![Dice Box](https://raw.githubusercontent.com/rafaelgonzalez/dice_box/master/dice.jpg)
 
 [![Build Status](https://travis-ci.org/rafaelgonzalez/dice_box.svg?branch=master)](https://travis-ci.org/rafaelgonzalez/dice_box)
 [![Code Climate](https://codeclimate.com/github/rafaelgonzalez/dice_box.png)](https://codeclimate.com/github/rafaelgonzalez/dice_box)
 [![Test Coverage](https://codeclimate.com/github/rafaelgonzalez/dice_box/coverage.png)](https://codeclimate.com/github/rafaelgonzalez/dice_box)
 
-A gem with dices, to get rolling with Ruby.
+A gem of dices, to get rolling with Ruby.
 
 ## Installation
 
@@ -47,9 +47,25 @@ dice.current_side # => #<DiceBox::Dice::Side>
 dice.current_side.value # => 24
 ```
 
+### Cheating with Sides weights
+
+You can alter the chances of appearence of any side by changing its weight:
+
+```ruby
+dice = DiceBox::Dice.new(3)
+dice.sides[0].weight = 0.0
+dice.sides[1].weight = 2.0
+
+dice.roll # => 2
+dice.roll # => 3
+dice.roll # => 2
+dice.roll # => 2
+dice.roll # => 2
+```
+
 ## Documentation
 
-Check the [online documentation](http://rubydoc.info/github/rafaelgonzalez/dice_box/master/frames).
+[The documentation](http://rubydoc.info/github/rafaelgonzalez/dice_box/master/frames) is generated with [YARD](http://yardoc.org/).
 
 ## Contributing
 
@@ -58,3 +74,9 @@ Check the [online documentation](http://rubydoc.info/github/rafaelgonzalez/dice_
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+## License
+
+Copyright :copyright: 2014 Rafaël Gonzalez
+
+Released under the terms of the MIT licence. See the LICENSE file for more details.
