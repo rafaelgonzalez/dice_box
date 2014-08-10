@@ -6,7 +6,7 @@ module DiceBox
     attr_reader :sides
 
     # @!attribute [r] rolled_side
-    # @return [Array] the last rolled Side
+    # @return [Dice::Side] the last rolled Side
     attr_reader :rolled_side
 
     # @!attribute [r] result
