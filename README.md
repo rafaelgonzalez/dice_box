@@ -57,6 +57,21 @@ Complete documentation available [here](http://rubydoc.info/github/rafaelgonzale
   dice.roll # => 2
   ```
 
+- [DiceBox::Cup](http://rubydoc.info/github/rafaelgonzalez/dice_box/DiceBox/Cup) (rolling multiple dice instances)
+
+  ```ruby
+  dices = [DiceBox::Dice.new(6), DiceBox::Dice.new(20), DiceBox::Dice.new(100)]
+  cup = DiceBox::Cup.new(dices)
+
+  cup.rolled # => nil
+  cup.roll # => 103
+  cup.rolled # => 103
+
+  cup.dices[0].rolled # => 2
+  cup.dices[1].rolled # => 19
+  cup.dices[2].rolled # => 88
+  ```
+
 ## Versioning
 
 DiceBox follows the principles of [semantic versioning](http://semver.org).
