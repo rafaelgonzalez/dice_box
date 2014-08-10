@@ -8,6 +8,8 @@ module DiceBox
     # @!attribute [r] result
     # @return [Integer] the result from the previous roll
     attr_reader :result
+    alias_method :rolled, :result
+    alias_method :rolled_value, :result
 
     # @param dices [Array] an Array of Dices to put in the Cup
     def initialize(dices = [])
