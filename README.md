@@ -69,6 +69,11 @@ DiceBox follows the principles of [semantic versioning](http://semver.org).
 
 > Additional labels for pre-release and build metadata are available as extensions to the MAJOR.MINOR.PATCH format.
 
+## Similar Libraries
+
+- [GamesDice](https://github.com/neilslater/games_dice) (Ruby gem)
+- [Droll](https://github.com/thebinarypenguin/droll) (Javascript)
+
 ## License
 
 Copyright :copyright: 2014 Rafaël Gonzalez
