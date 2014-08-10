@@ -63,9 +63,9 @@ module DiceBox
 
     private
 
-    # Instanciates multiple Sides
-    # @param sides_number [Integer] the number of Sides to instanciate
-    # @return [Array] the Array of instanciated Sides
+    # Instantiates multiple Sides
+    # @param sides_number [Integer] the number of Sides to instantiate
+    # @return [Array] the Array of instantiated Sides
     def build_sides(sides_number)
       sides_number.times.map do |number|
         Side.new(number + 1)
