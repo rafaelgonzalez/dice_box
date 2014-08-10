@@ -65,6 +65,87 @@ describe DiceBox::Dice do
     end
   end
 
+  context '.roll_with_notation' do
+    context "passing 'D6'" do
+      let(:notation) { 'D6' }
+
+      it 'calls .roll with the correct arguments' do
+        expect(described_class).to receive(:roll).with(6, 1).once
+        described_class.roll_with_notation(notation)
+      end
+    end
+
+    context "passing '1d6'" do
+      let(:notation) { '1d6' }
+
+      it 'calls .roll with the correct arguments' do
+        expect(described_class).to receive(:roll).with(6, 1).once
+        described_class.roll_with_notation(notation)
+      end
+    end
+
+    context "passing '4d20'" do
+      let(:notation) { '4d20' }
+
+      it 'calls .roll with the correct arguments' do
+        expect(described_class).to receive(:roll).with(20, 4).once
+        described_class.roll_with_notation(notation)
+      end
+    end
+
+    context "passing '2d4+7'" do
+      let(:notation) { '2d4+7' }
+
+      it 'adds 7 to the roll result' do
+        expect(described_class).to receive(:roll).with(4, 2).once.and_return(3)
+        expect(described_class.roll_with_notation(notation)).to eql 10
+      end
+    end
+
+    context "passing '3d9-4'" do
+      let(:notation) { '3d9-4' }
+
+      it 'substracts 4 from the roll result' do
+        expect(described_class).to receive(:roll).with(9, 3).once.and_return(11)
+        expect(described_class.roll_with_notation(notation)).to eql 7
+      end
+    end
+
+    context "passing '8d3x5'" do
+      let(:notation) { '8d3x5' }
+
+      it 'multiplies the roll result by 5' do
+        expect(described_class).to receive(:roll).with(3, 8).once.and_return(27)
+        expect(described_class.roll_with_notation(notation)).to eql 135
+      end
+    end
+
+    context "passing 'd30÷2'" do
+      let(:notation) { 'd30÷2' }
+
+      it 'divides the roll result by 2' do
+        expect(described_class).to receive(:roll).with(30, 1).once.and_return(16)
+        expect(described_class.roll_with_notation(notation)).to eql 8
+      end
+    end
+
+    context "passing '0d0÷2'" do
+      let(:notation) { '0d0÷2' }
+
+      it 'raises an ArgumentError' do
+        expect { described_class.roll_with_notation(notation) }.to raise_error(ArgumentError)
+      end
+    end
+
+    context "passing '4d'" do
+      let(:notation) { '4d' }
+
+      it 'raises an ArgumentError' do
+        expect { described_class.roll_with_notation(notation) }.to raise_error(ArgumentError)
+      end
+    end
+  end
+
   describe '#roll' do
     it 'sets #rolled_side to the rolled value' do
       rolled_value = subject.roll

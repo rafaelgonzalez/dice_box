@@ -34,6 +34,22 @@ module DiceBox
       end.reduce(&:+)
     end
 
+    # Rolls dices from the given notation
+    #
+    # @param notation [String] the dice notation
+    # @return [Integer] the rolled value
+    def self.roll_with_notation(notation)
+      notation = Dice::Notation.parse(notation)
+
+      roll_result = DiceBox::Dice.roll(notation[:sides], notation[:dices])
+
+      if notation[:operations].any?
+        roll_result = apply_operations_to_roll(roll_result, notation[:operations])
+      end
+
+      roll_result
+    end
+
     # Rolls the dice
     # @note Sets #rolled_side to the rolled Side
     # @note Sets #rolled_value to the rolled Side's value
@@ -97,6 +113,14 @@ module DiceBox
         return side if side.weight > num
         num = num - side.weight
       end
+    end
+
+    def self.apply_operations_to_roll(roll, operations)
+      operations.each do |operation|
+        roll = roll.public_send(operation[:operation], operation[:number])
+      end
+
+      roll
     end
   end
 end
