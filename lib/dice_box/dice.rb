@@ -36,7 +36,7 @@ module DiceBox
     end
 
     # Returns the last value rolled
-    # @return [Integer] the last rolled value.
+    # @return [Integer] the last rolled value
     def rolled
       @rolled_side ? @rolled_side.value : nil
     end
