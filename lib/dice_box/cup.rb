@@ -5,9 +5,9 @@ module DiceBox
     # @return [Array] the Array of Dices
     attr_accessor :dices
 
-    # @!attribute [r] rolled
-    # @return [Integer] the last rolled value
-    attr_reader :rolled
+    # @!attribute [r] result
+    # @return [Integer] the result from the previous roll
+    attr_reader :result
 
     # @param dices [Array] an Array of Dices to put in the Cup
     def initialize(dices = [])
@@ -17,7 +17,7 @@ module DiceBox
     # Rolls all the Dices in the Cup
     # @return [Integer] the sum of the rolled Dices
     def roll
-      @rolled = dices.map { |dice| dice.roll }.reduce(&:+)
+      @result = dices.map { |dice| dice.roll }.reduce(&:+)
     end
 
     # Returns the highest value the Cup can roll
