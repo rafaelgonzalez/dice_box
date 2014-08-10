@@ -19,5 +19,19 @@ module DiceBox
     def roll
       @rolled = dices.map { |dice| dice.roll }.reduce(&:+)
     end
+
+    # Returns the highest value the Cup can roll
+    # @return [Integer] minimum roll value
+    def maximum
+      dices.map(&:maximum).reduce(:+)
+    end
+    alias_method :max, :maximum
+
+    # Returns the lowest value the Cup can roll
+    # @return [Integer] minimum roll value
+    def minimum
+      dices.map(&:minimum).reduce(:+)
+    end
+    alias_method :min, :minimum
   end
 end

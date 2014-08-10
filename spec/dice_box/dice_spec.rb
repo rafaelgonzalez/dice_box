@@ -114,6 +114,56 @@ describe DiceBox::Dice do
     end
   end
 
+  describe '#maximum' do
+    subject { DiceBox::Dice.new(6) }
+
+    context 'with a classical dice' do
+      it 'returns the highest value the dice can roll' do
+        expect(subject.maximum).to eql 6
+      end
+    end
+
+    context 'with a dice with changed side values' do
+      before do
+        subject.sides[0].value = 247
+        subject.sides[1].value = 12
+        subject.sides[2].value = 271
+        subject.sides[3].value = 9
+        subject.sides[4].value = 46
+        subject.sides[5].value = 5
+      end
+
+      it 'returns the highest value the dice can roll' do
+        expect(subject.maximum).to eql 271
+      end
+    end
+  end
+
+  describe '#minimum' do
+    subject { DiceBox::Dice.new(6) }
+
+    context 'with a classical dice' do
+      it 'returns the lowest value the dice can roll' do
+        expect(subject.minimum).to eql 1
+      end
+    end
+
+    context 'with a dice with changed side values' do
+      before do
+        subject.sides[0].value = 247
+        subject.sides[1].value = 12
+        subject.sides[2].value = 271
+        subject.sides[3].value = 9
+        subject.sides[4].value = 46
+        subject.sides[5].value = 5
+      end
+
+      it 'returns the lowest value the dice can roll' do
+        expect(subject.minimum).to eql 5
+      end
+    end
+  end
+
   describe '#balanced?' do
     context 'with Sides of the same weight' do
       it 'returns true' do

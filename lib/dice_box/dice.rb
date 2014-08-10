@@ -41,6 +41,20 @@ module DiceBox
       @rolled_side ? @rolled_side.value : nil
     end
 
+    # Returns the highest value the Dice can roll
+    # @return [Integer] maximum roll value
+    def maximum
+      sides.map(&:value).max
+    end
+    alias_method :max, :maximum
+
+    # Returns the lowest value the Dice can roll
+    # @return [Integer] minimum roll value
+    def minimum
+      sides.map(&:value).min
+    end
+    alias_method :min, :minimum
+
     # Determines if all Sides of the Dice have the same weight
     # @return [Boolean]
     def balanced?
