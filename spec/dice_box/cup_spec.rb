@@ -45,4 +45,55 @@ describe DiceBox::Cup do
       expect(subject.rolled).to eql rolled_value
     end
   end
+
+  describe '#maximum' do
+    let(:dices) { [DiceBox::Dice.new(6), DiceBox::Dice.new(20), DiceBox::Dice.new(100)] }
+    subject { DiceBox::Cup.new(dices) }
+
+    context 'with classical dices' do
+      it 'returns the highest value the cup can roll' do
+        expect(subject.maximum).to eql 126
+      end
+    end
+
+    context 'with dices with changed side values' do
+      before do
+        dices[0].sides[0].value = 56
+        dices[1].sides[0].value = 98
+        dices[2].sides[0].value = 112
+      end
+
+      it 'returns the highest value the cup can roll' do
+        expect(subject.maximum).to eql 266
+      end
+    end
+  end
+
+  describe '#minimum' do
+    let(:dices) { [DiceBox::Dice.new(6), DiceBox::Dice.new(6), DiceBox::Dice.new(6)] }
+    subject { DiceBox::Cup.new(dices) }
+
+    context 'with classical dices' do
+      it 'returns the lowest value the cup can roll' do
+        expect(subject.minimum).to eql 3
+      end
+    end
+
+    context 'with dices with changed side values' do
+      before do
+        dices.each do |dice|
+          dice.sides[0].value = 102
+          dice.sides[1].value = 206
+          dice.sides[2].value = 191
+          dice.sides[3].value = 76
+          dice.sides[4].value = 213
+          dice.sides[5].value = 87
+        end
+      end
+
+      it 'returns the lowest value the cup can roll' do
+        expect(subject.minimum).to eql 228
+      end
+    end
+  end
 end
