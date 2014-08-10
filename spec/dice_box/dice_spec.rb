@@ -112,6 +112,18 @@ describe DiceBox::Dice do
         expect(subject.rolled).to eql rolled_value
       end
     end
+
+    context 'with a rolled side that changes value' do
+      it 'returns the rolled value' do
+        rolled_value = subject.roll
+
+        expect(subject.rolled).to eql rolled_value
+
+        subject.rolled_side.value = 1000
+
+        expect(subject.rolled).to eql rolled_value
+      end
+    end
   end
 
   describe '#maximum' do
