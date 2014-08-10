@@ -46,6 +46,33 @@ describe DiceBox::Cup do
     end
   end
 
+  describe '#rolled_sides' do
+    let(:dice_1) { DiceBox::Dice.new(6) }
+    let(:dice_2) { DiceBox::Dice.new(4) }
+    let(:dice_3) { DiceBox::Dice.new(12) }
+    let(:dices) { [dice_1, dice_2, dice_3] }
+
+    it 'returns an Array of Sides' do
+      expect(subject.rolled_sides).to be_an(Array)
+      expect(subject.rolled_sides).to be_empty
+
+      subject.roll
+
+      expect(subject.rolled_sides).to be_an(Array)
+      expect(subject.rolled_sides).to be_an(Array)
+    end
+
+    it 'does not change if dices are not rolled with the cup' do
+      subject.roll
+      rolled_sides = subject.rolled_sides
+
+      dice_1.roll
+      dice_2.roll
+      dice_3.roll
+      expect(subject.rolled_sides).to eql rolled_sides
+    end
+  end
+
   describe '#maximum' do
     let(:dices) { [DiceBox::Dice.new(6), DiceBox::Dice.new(20), DiceBox::Dice.new(100)] }
     subject { DiceBox::Cup.new(dices) }
