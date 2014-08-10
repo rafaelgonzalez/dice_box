@@ -6,13 +6,20 @@ module DiceBox
     attr_reader :sides
 
     # @!attribute [r] rolled_side
-    # @return [Array] the last rolled Side
+    # @return [Dice::Side] the last rolled Side
     attr_reader :rolled_side
+
+    # @!attribute [r] result
+    # @return [Integer] the result from the previous roll
+    attr_reader :result
+    alias_method :rolled, :result
+    alias_method :rolled_value, :result
 
     # @param sides_number [Integer] the number of Sides this Dice should have
     def initialize(sides_number)
       @sides = build_sides(sides_number)
       @rolled_side = nil
+      @rolled = nil
     end
 
     # Rolls multiple dices with the same number of sides
@@ -29,16 +36,11 @@ module DiceBox
 
     # Rolls the dice
     # @note Sets #rolled_side to the rolled Side
+    # @note Sets #rolled_value to the rolled Side's value
     # @return [Integer] the value of the rolled Side
     def roll
       @rolled_side = balanced? ? sides.sample : weighted_roll
-      rolled_side.value
-    end
-
-    # Returns the last value rolled
-    # @return [Integer] the last rolled value
-    def rolled
-      @rolled_side ? @rolled_side.value : nil
+      @result = rolled_side.value
     end
 
     # Returns the highest value the Dice can roll
