@@ -12,6 +12,8 @@ module DiceBox
     # @!attribute [r] result
     # @return [Integer] the result from the previous roll
     attr_reader :result
+    alias_method :rolled, :result
+    alias_method :rolled_value, :result
 
     # @param sides_number [Integer] the number of Sides this Dice should have
     def initialize(sides_number)
