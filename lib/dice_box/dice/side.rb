@@ -2,9 +2,9 @@ module DiceBox
   class Dice
     # Representation of the side of a dice
     class Side
-      # @!attribute [r] value
+      # @!attribute [rw] value
       # @return [Integer] the actual value of the Side
-      attr_reader :value
+      attr_accessor :value
 
       # @!attribute [rw] weight
       # @return [Float] the weight of the Side
