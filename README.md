@@ -39,9 +39,9 @@ Complete documentation available [here](http://rubydoc.info/github/rafaelgonzale
 
   # Using an instance
   dice = DiceBox::Dice.new(12)
-  dice.rolled # => nil
+  dice.result # => nil
   dice.roll # => 24
-  dice.rolled # => 24
+  dice.result # => 24
   ```
 
 - [DiceBox::Dice::Sides](http://rubydoc.info/github/rafaelgonzalez/dice_box/DiceBox/Dice/Side) (cheating with sides weights)
@@ -63,26 +63,24 @@ Complete documentation available [here](http://rubydoc.info/github/rafaelgonzale
   dices = [DiceBox::Dice.new(6), DiceBox::Dice.new(20), DiceBox::Dice.new(100)]
   cup = DiceBox::Cup.new(dices)
 
-  cup.rolled # => nil
+  cup.result # => nil
   cup.roll # => 103
-  cup.rolled # => 103
+  cup.result # => 103
 
-  cup.dices[0].rolled # => 2
-  cup.dices[1].rolled # => 19
-  cup.dices[2].rolled # => 88
+  cup.dices[0].result # => 2
+  cup.dices[1].result # => 19
+  cup.dices[2].result # => 88
   ```
 
 ## Versioning
 
 DiceBox follows the principles of [semantic versioning](http://semver.org).
 
-> Given a version number MAJOR.MINOR.PATCH, increment the:
+Given a version number MAJOR.MINOR.PATCH:
 
-> - MAJOR version when you make incompatible API changes,
-> - MINOR version when you add functionality in a backwards-compatible manner, and
-> - PATCH version when you make backwards-compatible bug fixes.
-
-> Additional labels for pre-release and build metadata are available as extensions to the MAJOR.MINOR.PATCH format.
+- MAJOR is incremented when incompatible API changes are made
+- MINOR is incremented when functionalities are added in a backwards-compatible manner
+- PATCH is incremented when backwards-compatible bug fixes are made
 
 ## Similar Libraries
 
