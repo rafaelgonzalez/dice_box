@@ -1,5 +1,5 @@
 module DiceBox
-  # Commodity class to use multiple Dice instances at the same time
+  # Convenience class to use multiple Dice instances at the same time
   class Cup
     # @!attribute [rw] dices
     # @return [Array] the Array of Dices
