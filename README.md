@@ -3,9 +3,11 @@
 ![Dice Box](https://raw.githubusercontent.com/rafaelgonzalez/dice_box/master/dice.jpg)
 
 [![Gem Version](https://badge.fury.io/rb/dice_box.svg)](http://badge.fury.io/rb/dice_box)
+[![Dependency Status](https://gemnasium.com/rafaelgonzalez/dice_box.svg)](https://gemnasium.com/rafaelgonzalez/dice_box)
 [![Build Status](https://travis-ci.org/rafaelgonzalez/dice_box.svg?branch=master)](https://travis-ci.org/rafaelgonzalez/dice_box)
-[![Code Climate](https://codeclimate.com/github/rafaelgonzalez/dice_box.png)](https://codeclimate.com/github/rafaelgonzalez/dice_box)
-[![Test Coverage](https://codeclimate.com/github/rafaelgonzalez/dice_box/coverage.png)](https://codeclimate.com/github/rafaelgonzalez/dice_box)
+[![Test Coverage](https://codeclimate.com/github/rafaelgonzalez/dice_box/coverage.svg)](https://codeclimate.com/github/rafaelgonzalez/dice_box)
+[![Code Climate](https://codeclimate.com/github/rafaelgonzalez/dice_box.svg)](https://codeclimate.com/github/rafaelgonzalez/dice_box)
+[![Inline docs](http://inch-ci.org/github/rafaelgonzalez/dice_box.svg?branch=master)](http://inch-ci.org/github/rafaelgonzalez/dice_box)
 
 A gem of dices, to get rolling with Ruby.
 
