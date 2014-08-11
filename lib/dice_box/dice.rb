@@ -59,9 +59,10 @@ module DiceBox
 
     # Determines if all Sides of the Dice have the same weight
     # @return [Boolean]
-    def balanced?
+    def fair?
       !crooked?
     end
+    alias_method :balanced?, :fair?
 
     # Determines if at least one Side has a different weight than any other Side of the Dice
     # @return [Boolean]
