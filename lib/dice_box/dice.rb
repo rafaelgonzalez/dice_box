@@ -71,6 +71,7 @@ module DiceBox
         weight != sides.first.weight
       end
     end
+    alias_method :loaded?, :crooked?
 
     # The weight of the Dice, sum of all Sides weights
     # @return [Float] the weight of the Dice
