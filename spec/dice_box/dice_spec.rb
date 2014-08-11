@@ -176,10 +176,10 @@ describe DiceBox::Dice do
     end
   end
 
-  describe '#balanced?' do
+  describe '#fair?' do
     context 'with Sides of the same weight' do
       it 'returns true' do
-        expect(subject).to be_balanced
+        expect(subject).to be_fair
       end
     end
 
@@ -187,7 +187,7 @@ describe DiceBox::Dice do
       before { subject.sides.first.weight = 2.0 }
 
       it 'returns false' do
-        expect(subject).not_to be_balanced
+        expect(subject).not_to be_fair
       end
     end
   end
