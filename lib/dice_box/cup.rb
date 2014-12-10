@@ -24,7 +24,7 @@ module DiceBox
     # Rolls all the Dices in the Cup
     # @return [Integer] the sum of the rolled Dices
     def roll
-      @result = dices.map { |dice| dice.roll }.reduce(&:+)
+      @result = dices.map(&:roll).reduce(&:+)
       @rolled_sides = dices.map(&:rolled_side)
 
       result
