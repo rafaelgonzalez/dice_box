@@ -4,8 +4,4 @@ rvm:
   - 2.1.0
   - 2.0.0
 
-addons:
-  code_climate:
-    repo_token: eb81b5b2208352b78077fbe41f8c1602616905aaf83d922764b3fbbaec9417a1
-
 script: 'bundle exec rake test'
