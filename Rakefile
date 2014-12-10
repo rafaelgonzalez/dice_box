@@ -17,10 +17,10 @@ begin
   Cane::RakeTask.new(:quality) do |cane|
     cane.canefile = '.cane'
   end
+
+  Rake::Task[:test].enhance do
+    Rake::Task[:quality].invoke
+  end
 rescue LoadError
   warn 'Cane not available, :quality task not provided.'
-end
-
-Rake::Task[:test].enhance do
-  Rake::Task[:quality].invoke
 end
