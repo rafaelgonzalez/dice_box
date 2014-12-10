@@ -13,9 +13,9 @@ A gem of dices, to get rolling with Ruby.
 
 **Supported Ruby versions:**
 
+- MRI 2.1.5
 - MRI 2.1.0
 - MRI 2.0.0
-- JRuby 1.7.13
 
 ## Installation
 
