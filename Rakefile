@@ -3,7 +3,6 @@ require 'rspec/core/rake_task'
 require 'rubocop/rake_task'
 
 RSpec::Core::RakeTask.new
-RuboCop::RakeTask.new
 
 task default: :test
 
@@ -23,4 +22,8 @@ begin
   end
 rescue LoadError
   warn 'Cane not available, :quality task not provided.'
+end
+
+RuboCop::RakeTask.new(:rubocop) do |task|
+  task.options = ['-D']
 end
