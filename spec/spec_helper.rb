@@ -5,6 +5,8 @@ SimpleCov.start do
   add_filter '/spec/'
 end
 
+SimpleCov.minimum_coverage 100
+
 CodeClimate::TestReporter.start
 
 require 'dice_box'
