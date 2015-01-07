@@ -64,7 +64,8 @@ module DiceBox
     end
     alias_method :balanced?, :fair?
 
-    # Determines if at least one Side has a different weight than any other Side of the Dice
+    # Determines if at least one Side has a different weight than any
+    # other Side of the Dice
     # @return [Boolean]
     def crooked?
       sides.map(&:weight).any? do |weight|
@@ -97,7 +98,7 @@ module DiceBox
 
       sides.each do |side|
         return side if side.weight > num
-        num = num - side.weight
+        num -= side.weight
       end
     end
   end

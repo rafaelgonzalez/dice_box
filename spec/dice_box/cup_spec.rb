@@ -74,7 +74,14 @@ describe DiceBox::Cup do
   end
 
   describe '#maximum' do
-    let(:dices) { [DiceBox::Dice.new(6), DiceBox::Dice.new(20), DiceBox::Dice.new(100)] }
+    let(:dices) do
+      [
+        DiceBox::Dice.new(6),
+        DiceBox::Dice.new(20),
+        DiceBox::Dice.new(100)
+      ]
+    end
+
     subject { DiceBox::Cup.new(dices) }
 
     context 'with classical dices' do
@@ -97,7 +104,14 @@ describe DiceBox::Cup do
   end
 
   describe '#minimum' do
-    let(:dices) { [DiceBox::Dice.new(6), DiceBox::Dice.new(6), DiceBox::Dice.new(6)] }
+    let(:dices) do
+      [
+        DiceBox::Dice.new(6),
+        DiceBox::Dice.new(6),
+        DiceBox::Dice.new(6)
+      ]
+    end
+
     subject { DiceBox::Cup.new(dices) }
 
     context 'with classical dices' do
