@@ -6,8 +6,8 @@ require 'dice_box/version'
 Gem::Specification.new do |spec|
   spec.name          = 'dice_box'
   spec.version       = DiceBox::VERSION
-  spec.authors       = ['Rafaël Gonzalez']
-  spec.email         = ['github@rafaelgonzalez.me']
+  spec.author        = 'Rafaël Gonzalez'
+  spec.email         = 'github@rafaelgonzalez.me'
   spec.summary       = 'A gem with dices, to get rolling with Ruby.'
   spec.description   = 'A gem with dices, to get rolling with Ruby.'
   spec.homepage      = 'https://github.com/rafaelgonzalez/dice_box'
