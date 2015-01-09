@@ -17,6 +17,7 @@ A gem of dices, to get rolling with Ruby.
 - MRI 2.1.5
 - MRI 2.1.0
 - MRI 2.0.0
+- MRI 1.9.3
 
 ## Installation
 
