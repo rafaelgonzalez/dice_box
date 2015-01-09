@@ -80,6 +80,84 @@ module DiceBox
       sides.map(&:weight).reduce(&:+)
     end
 
+    # Returns a Hash with all the possible values for this Dice,
+    # with their respective probabilities.
+    #
+    # @return [Hash] the probabilities
+    def probabilities
+      hash = {}
+
+      sides.map(&:value).each do |value|
+        hash[value] = probability(value)
+      end
+
+      hash
+    end
+
+    # The probability to roll a given Side
+    #
+    # @param side [DiceBox::Dice::Side] the side
+    # @return [Float] the probability
+    #
+    # @note If the Dice has the Side instance defined multiple times,
+    #       this will influence the result, see example.
+    #
+    # @example A Dice with a Side defined multiple times.
+    #   dice = DiceBox::Dice.new(3)
+    #   side = DiceBox::Dice::Side.new(1)
+    #   dice.sides[0] = dice.sides[1] = dice.sides[2] = side
+    #   side.probability_for_side(side) # => 1.0
+    def probability_for_side(side)
+      equal_sides = sides.select { |s| s == side }
+
+      equal_sides.map(&:weight).reduce(:+).to_f / weight.to_f
+    end
+
+    # The probability to roll a given value
+    # @param value [Fixnum]
+    # @return [Float] the probability
+    def probability(value)
+      sides_with_value = sides.select { |s| s.value == value }
+
+      probability_for_sides(sides_with_value)
+    end
+
+    # The probability to roll a value greater than the given value
+    # @param value [Fixnum]
+    # @return [Float] the probability
+    def probability_greater_than(value)
+      sides_with_value = sides.select { |s| s.value > value }
+
+      probability_for_sides(sides_with_value)
+    end
+
+    # The probability to roll a value greater than or equal to the given value
+    # @param value [Fixnum]
+    # @return [Float] the probability
+    def probability_greater_than_or_equal(value)
+      sides_with_value = sides.select { |s| s.value >= value }
+
+      probability_for_sides(sides_with_value)
+    end
+
+    # The probability to roll a value lower than the given value
+    # @param value [Fixnum]
+    # @return [Float] the probability
+    def probability_lower_than(value)
+      sides_with_value = sides.select { |s| s.value < value }
+
+      probability_for_sides(sides_with_value)
+    end
+
+    # The probability to roll a value lower than or equal to the given value
+    # @param value [Fixnum]
+    # @return [Float] the probability
+    def probability_lower_than_or_equal(value)
+      sides_with_value = sides.select { |s| s.value <= value }
+
+      probability_for_sides(sides_with_value)
+    end
+
     private
 
     # Instantiates multiple Sides
@@ -100,6 +178,22 @@ module DiceBox
         return side if side.weight > num
         num -= side.weight
       end
+    end
+
+    def probability_for_sides(sides_list)
+      if fair?
+        fair_probability_for_sides(sides_list)
+      else
+        weighted_probability_for_sides(sides_list)
+      end
+    end
+
+    def fair_probability_for_sides(sides_list)
+      sides_list.size.to_f / sides.size.to_f
+    end
+
+    def weighted_probability_for_sides(sides_list)
+      sides_list.map(&:weight).reduce(:+).to_f / weight.to_f
     end
   end
 end
