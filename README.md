@@ -78,7 +78,7 @@ Complete documentation available [here](http://rubydoc.info/github/rafaelgonzale
 
 ## Versioning
 
-DiceBox follows the principles of [semantic versioning](http://semver.org).
+DiceBox follows the principles of [semantic versioning](http://semver.org) 2.0.0.
 
 Given a version number MAJOR.MINOR.PATCH:
 
