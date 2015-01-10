@@ -1,15 +1,15 @@
 describe DiceBox::Dice::Side do
-  subject { described_class.new(12) }
+  let(:dice) { described_class.new(12) }
 
   describe '#value' do
-    it 'returns the value' do
-      expect(subject.value).to eql 12
-    end
+    subject { dice.value }
+
+    it { is_expected.to eql 12 }
   end
 
   describe '#weight' do
-    it 'returns the value' do
-      expect(subject.weight).to eql 1.0
-    end
+    subject { dice.weight }
+
+    it { is_expected.to eql 1.0 }
   end
 end
