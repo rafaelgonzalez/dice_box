@@ -9,11 +9,11 @@ module DiceBox
     # @return [Dice::Side] the last rolled Side
     attr_reader :rolled_side
 
-    # @!attribute [r] result
+    # @!attribute [r] rolled
     # @return [Integer] the result from the previous roll
-    attr_reader :result
-    alias_method :rolled, :result
-    alias_method :rolled_value, :result
+    attr_reader :rolled
+    alias_method :result, :rolled
+    alias_method :rolled_value, :rolled
 
     # @param sides_number [Integer] the number of Sides this Dice should have
     def initialize(sides_number)
@@ -40,7 +40,7 @@ module DiceBox
     # @return [Integer] the value of the rolled Side
     def roll
       @rolled_side = balanced? ? sides.sample : weighted_roll
-      @result = rolled_side.value
+      @rolled = rolled_side.value
     end
 
     # Returns the highest value the Dice can roll
