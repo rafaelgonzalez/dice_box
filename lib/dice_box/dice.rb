@@ -117,18 +117,14 @@ module DiceBox
     # @param value [Fixnum]
     # @return [Float] the probability
     def probability(value)
-      sides_with_value = sides.select { |s| s.value == value }
-
-      probability_for_sides(sides_with_value)
+      probability_for_sides(:==, value)
     end
 
     # The probability to roll a value greater than the given value
     # @param value [Fixnum]
     # @return [Float] the probability
     def probability_greater_than(value)
-      sides_with_value = sides.select { |s| s.value > value }
-
-      probability_for_sides(sides_with_value)
+      probability_for_sides(:>, value)
     end
     alias_method :probability_gt, :probability_greater_than
 
@@ -136,9 +132,7 @@ module DiceBox
     # @param value [Fixnum]
     # @return [Float] the probability
     def probability_greater_than_or_equal(value)
-      sides_with_value = sides.select { |s| s.value >= value }
-
-      probability_for_sides(sides_with_value)
+      probability_for_sides(:>=, value)
     end
     alias_method :probability_gtoe, :probability_greater_than_or_equal
 
@@ -146,9 +140,7 @@ module DiceBox
     # @param value [Fixnum]
     # @return [Float] the probability
     def probability_lower_than(value)
-      sides_with_value = sides.select { |s| s.value < value }
-
-      probability_for_sides(sides_with_value)
+      probability_for_sides(:<, value)
     end
     alias_method :probability_lt, :probability_lower_than
 
@@ -156,9 +148,7 @@ module DiceBox
     # @param value [Fixnum]
     # @return [Float] the probability
     def probability_lower_than_or_equal(value)
-      sides_with_value = sides.select { |s| s.value <= value }
-
-      probability_for_sides(sides_with_value)
+      probability_for_sides(:<=, value)
     end
     alias_method :probability_ltoe, :probability_lower_than_or_equal
 
@@ -184,7 +174,9 @@ module DiceBox
       end
     end
 
-    def probability_for_sides(sides_list)
+    def probability_for_sides(operator, value)
+      sides_list = sides.select { |s| s.value.public_send(operator, value) }
+
       if fair?
         fair_probability_for_sides(sides_list)
       else
