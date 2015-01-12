@@ -36,7 +36,7 @@ module DiceBox
 
     # Rolls the dice
     # @note Sets #rolled_side to the rolled Side
-    # @note Sets #rolled_value to the rolled Side's value
+    # @note Sets #rolled to the rolled Side's value
     # @return [Integer] the value of the rolled Side
     def roll
       @rolled_side = balanced? ? sides.sample : weighted_roll
