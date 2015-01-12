@@ -1,4 +1,5 @@
 # rubocop:disable Style/Documentation
+# See: https://github.com/bbatsov/rubocop/issues/947
 module DiceBox
   # rubocop:disable Style/Documentation
 
