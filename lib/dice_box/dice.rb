@@ -130,6 +130,7 @@ module DiceBox
 
       probability_for_sides(sides_with_value)
     end
+    alias_method :probability_gt, :probability_greater_than
 
     # The probability to roll a value greater than or equal to the given value
     # @param value [Fixnum]
@@ -139,6 +140,7 @@ module DiceBox
 
       probability_for_sides(sides_with_value)
     end
+    alias_method :probability_gtoe, :probability_greater_than_or_equal
 
     # The probability to roll a value lower than the given value
     # @param value [Fixnum]
@@ -148,6 +150,7 @@ module DiceBox
 
       probability_for_sides(sides_with_value)
     end
+    alias_method :probability_lt, :probability_lower_than
 
     # The probability to roll a value lower than or equal to the given value
     # @param value [Fixnum]
@@ -157,6 +160,7 @@ module DiceBox
 
       probability_for_sides(sides_with_value)
     end
+    alias_method :probability_ltoe, :probability_lower_than_or_equal
 
     private
 

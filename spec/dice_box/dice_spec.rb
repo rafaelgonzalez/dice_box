@@ -456,6 +456,12 @@ describe DiceBox::Dice do
         it { is_expected.to eql 0.0 }
       end
     end
+
+    it 'has alias methods' do
+      expect(
+        dice.method(:probability_greater_than)
+      ).to eql dice.method(:probability_gt)
+    end
   end
 
   describe '#probability_greater_than_or_equal' do
@@ -500,6 +506,12 @@ describe DiceBox::Dice do
 
         it { is_expected.to eql 0.0 }
       end
+    end
+
+    it 'has alias methods' do
+      expect(
+        dice.method(:probability_greater_than_or_equal)
+      ).to eql dice.method(:probability_gtoe)
     end
   end
 
@@ -546,6 +558,12 @@ describe DiceBox::Dice do
         it { is_expected.to eql 1.0 }
       end
     end
+
+    it 'has alias methods' do
+      expect(
+        dice.method(:probability_lower_than)
+      ).to eql dice.method(:probability_lt)
+    end
   end
 
   describe '#probability_lower_than_or_equal' do
@@ -590,6 +608,12 @@ describe DiceBox::Dice do
 
         it { is_expected.to eql 1.0 }
       end
+    end
+
+    it 'has alias methods' do
+      expect(
+        dice.method(:probability_lower_than_or_equal)
+      ).to eql dice.method(:probability_ltoe)
     end
   end
 end
